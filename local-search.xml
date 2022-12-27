@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Hexo 文章同名資料夾圖片引入方法</title>
+    <link href="/2022/12/21/embedding-an-image-using-markdown/"/>
+    <url>/2022/12/21/embedding-an-image-using-markdown/</url>
+    
+    <content type="html"><![CDATA[<p>最近新建了一個 Hexo 打算用來寫 Blog，記錄一下文章同名資料夾的圖片引入方法</p><span id="more"></span><h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><blockquote><p>版本：<br>Hexo 6.3.0<br>hexo-asset-image 1.0.0</p></blockquote><h2 id="自動建立文章同名資料夾"><a href="#自動建立文章同名資料夾" class="headerlink" title="自動建立文章同名資料夾"></a>自動建立文章同名資料夾</h2><p>開啟 Hexo 資料中的 <code>_config.yml</code> 檔案，將檔案中的</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure><p>改為</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">post_asset_folder:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><p>在建立文章同時會建立同名資料夾</p><h2 id="引入圖片方法"><a href="#引入圖片方法" class="headerlink" title="引入圖片方法"></a>引入圖片方法</h2><p>只要將圖片放入此文章同名資料夾，同時使用以下語法</p><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="hljs-template-tag">&#123;% 圖片描述 圖片名稱.<span class="hljs-name">png</span> %&#125;</span><br></code></pre></td></tr></table></figure><p>就可以引入圖片，但若是要用以下 markdown 語法引入圖片</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">!<span class="hljs-selector-attr">[圖片描述]</span>(圖片名稱.png)<br></code></pre></td></tr></table></figure><p>就需另外在 <code>_config.yml</code> 加入以下語法</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">marked:</span><br>  <span class="hljs-attr">prependRoot:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">postAsset:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><h2 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h2><p><a href="https://hexo.io/zh-tw/docs/asset-folders#Embedding-an-image-using-markdown">Markdown - 資產資料夾</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>使用 Zapier 在 Discord 製作每日發文機器人</title>
+    <link href="/2022/12/20/use-zapier-in-discord/"/>
+    <url>/2022/12/20/use-zapier-in-discord/</url>
+    
+    <content type="html"><![CDATA[<p>最近建了一個 Discord 伺服器，想用來記錄及覆盤每日自己做的事情，因此利用 Zapier 在 Discord 製作每日發文機器人，每天傳送訊息提醒自己做覆盤紀錄，以下為流程</p><span id="more"></span><blockquote><p>在此之前，必需在 Discord 有自己的伺服器或有相對應的權限</p></blockquote><h2 id="Zapier-免費版註冊-x2F-登入"><a href="#Zapier-免費版註冊-x2F-登入" class="headerlink" title="Zapier 免費版註冊&#x2F;登入"></a>Zapier 免費版註冊&#x2F;登入</h2><p><a href="https://zapier.com/">Zapier</a> 是一個自動化工具，首先到 Zapier 官網註冊或登入後，到個人 Dashboard 頁面</p><p><img src="/2022/12/20/use-zapier-in-discord/1-1.png" alt="Zapier 個人 Dashboard 頁面"></p><p><strong>在左側選單可以看到免費版一個月可以發 1000 個 Zap，一個月後會重新計算，且只自動運行一個月，一個月後會自動關閉，到時要重新開啟</strong></p><blockquote><p>一個 Zap 也就是一個自動化的事項，例如：發送一個訊息到 Discord 就是一個 Zap</p></blockquote><p><img src="/2022/12/20/use-zapier-in-discord/1-2.png" alt="Zapier free plan"></p><h2 id="Make-a-Zap"><a href="#Make-a-Zap" class="headerlink" title="Make a Zap"></a>Make a Zap</h2><p>接著來製作 Zapier 在 Discord 每日發文機器人</p><p>首先在 “Make a Zap” 表格中，選擇 “Schedule in Zapier” 整合至 “Discord”</p><p>接下來因目標是每日自動發文，所以選擇 “Every Day”、”Send Channel Message”</p><blockquote><p>也可以依需求自行選擇 “Every Week”、”Every Month” 或其他設定</p></blockquote><p>最後按下 “Try It”</p><p><img src="/2022/12/20/use-zapier-in-discord/2.png" alt="Make a Zap 表格"></p><p>完成後會跳至 Make a Zap 的客製化設定</p><p>點擊最上方的 <code>Trigger - 1. Send channel message in Discord when every day in Schedule by Zapier</code></p><p><img src="/2022/12/20/use-zapier-in-discord/3.png" alt="客製化設定"></p><p>確定觸發日期，點擊 Continue</p><p><img src="/2022/12/20/use-zapier-in-discord/4-1.png" alt="確定觸發日期"></p><p>選則周末是否要觸發以及設定觸發時間，確定後點擊 Continue</p><blockquote><p>觸發時間格式可以使用選單的 <code>1am</code>、<code>Midnight</code> 或是使用 Custom 格式設置為 <code>9:30pm</code>、<code>21:30</code>、<code>2130</code></p></blockquote><p><img src="/2022/12/20/use-zapier-in-discord/4-2.png" alt="設定觸發時間"></p><p>點選 Test Tigger 測試觸發</p><p><img src="/2022/12/20/use-zapier-in-discord/4-3.png" alt="測試觸發"></p><p>點擊 Continue 即可</p><p><img src="/2022/12/20/use-zapier-in-discord/4-4.png"></p><p>完成 Schedule in Zapier 時間設定後，接下來進行 Discord 設定</p><p>選擇 <code>Action - 2. Send Channel Message in Discord</code>，確認是 <code>Send Channel Message</code> 按下 Continue</p><p><img src="/2022/12/20/use-zapier-in-discord/5-1.png" alt="Discord 設定"></p><p>使用 <code>+ Connect a bew account</code>，選擇自己的 Discord 伺服器，並設定授權後，點擊 Continue</p><p><img src="/2022/12/20/use-zapier-in-discord/5-2.png" alt="選擇 Discord 伺服器"></p><p>設定 Discord 動作後，按下 Continue</p><ul><li>動作資訊：<ul><li>Channel 頻道</li><li>Message Text 要傳送的訊息</li><li>Ping Username, Role and everyone mentions? 是否要標註人或標註每個人</li><li>Text to Speech 是否允許文字轉換語音</li><li>Bot Name 機器人頭像名稱</li><li>Bot Icon 機器人頭像圖片(請使用完整 URL 路徑，例如 <code>https://example.com/my-image.png</code>，若沒設定預設為 Zapier logo)</li></ul></li></ul><blockquote><p>圖片可以到 <a href="https://unsplash.com/">Unsplash</a> 找</p></blockquote><ul><li>若要使用 Discord 的標記語法：<ul><li>標記所有人<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-meta">@everyone</span><br></code></pre></td></tr></table></figure></li><li>指定 userID<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-symbol">@1234567890</span><br></code></pre></td></tr></table></figure></li></ul></li></ul><p>其他設定可看 <a href="https://help.zapier.com/hc/en-us/articles/8496165585165">Zapier - Mentions and notifications</a></p><p><img src="/2022/12/20/use-zapier-in-discord/5-3.png" alt="設定 Discord 動作"></p><p>最後可以使用 Test action 看是否能正確傳送</p><p><img src="/2022/12/20/use-zapier-in-discord/5-4.png" alt="測試發送"></p><p>到 Discord 看是否有收到測試訊息</p><p><img src="/2022/12/20/use-zapier-in-discord/6.png" alt="測試訊息"></p><p>按下 Publish Zap，及跳出的 Publish &amp; Turn on 按鈕</p><p><img src="/2022/12/20/use-zapier-in-discord/7-1.png" alt="發布確認"></p><p><img src="/2022/12/20/use-zapier-in-discord/7-2.png"></p><h2 id="查詢-x2F-再次編輯我的任務"><a href="#查詢-x2F-再次編輯我的任務" class="headerlink" title="查詢&#x2F;再次編輯我的任務"></a>查詢&#x2F;再次編輯我的任務</h2><p>選擇選單 My Map 點擊 Discord</p><p><img src="/2022/12/20/use-zapier-in-discord/8-1.png"></p><p>選擇 Zaps，因為我有設定早晚兩個任務所以有兩個，若要編輯也可點擊要修改的任務</p><p><img src="/2022/12/20/use-zapier-in-discord/8-2.png"></p><p>按下 View in Editor</p><p><img src="/2022/12/20/use-zapier-in-discord/9-1.png"></p><p>再點選 Edit 即可編輯 </p><p><img src="/2022/12/20/use-zapier-in-discord/9-2.png"></p><p>最後可以等設定時間到再看是不是在指定時間有確實傳送訊息，就完成啦</p><p><img src="/2022/12/20/use-zapier-in-discord/10.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Discord</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Discord</tag>
+      
+      <tag>Zapier</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

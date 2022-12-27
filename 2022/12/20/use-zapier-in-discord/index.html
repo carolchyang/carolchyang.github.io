@@ -1,0 +1,749 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Carol Yang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="最近建了一個 Discord 伺服器，想用來記錄及覆盤每日自己做的事情，因此利用 Zapier 在 Discord 製作每日發文機器人，每天傳送訊息提醒自己做覆盤紀錄，以下為流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Zapier 在 Discord 製作每日發文機器人">
+<meta property="og:url" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/index.html">
+<meta property="og:site_name" content="Carol murmured">
+<meta property="og:description" content="最近建了一個 Discord 伺服器，想用來記錄及覆盤每日自己做的事情，因此利用 Zapier 在 Discord 製作每日發文機器人，每天傳送訊息提醒自己做覆盤紀錄，以下為流程">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/1-1.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/1-2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/3.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/4-1.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/4-2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/4-3.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/4-4.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/5-1.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/5-2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/5-3.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/5-4.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/6.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/7-1.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/7-2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/8-1.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/8-2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/9-1.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/9-2.png">
+<meta property="og:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/10.png">
+<meta property="article:published_time" content="2022-12-20T15:30:33.000Z">
+<meta property="article:modified_time" content="2022-12-27T04:34:34.628Z">
+<meta property="article:author" content="Carol Yang">
+<meta property="article:tag" content="Discord">
+<meta property="article:tag" content="Zapier">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/1-1.png">
+  
+  
+  
+  <title>使用 Zapier 在 Discord 製作每日發文機器人 - Carol murmured</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"carolchyang.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Carol murmured</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                歸檔
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 Zapier 在 Discord 製作每日發文機器人"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-20 23:30" pubdate>
+          2022年12月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">使用 Zapier 在 Discord 製作每日發文機器人</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    本文最後更新於：2022年12月27日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>最近建了一個 Discord 伺服器，想用來記錄及覆盤每日自己做的事情，因此利用 Zapier 在 Discord 製作每日發文機器人，每天傳送訊息提醒自己做覆盤紀錄，以下為流程</p>
+<span id="more"></span>
+
+<blockquote>
+<p>在此之前，必需在 Discord 有自己的伺服器或有相對應的權限</p>
+</blockquote>
+<h2 id="Zapier-免費版註冊-x2F-登入"><a href="#Zapier-免費版註冊-x2F-登入" class="headerlink" title="Zapier 免費版註冊&#x2F;登入"></a>Zapier 免費版註冊&#x2F;登入</h2><p><a target="_blank" rel="noopener" href="https://zapier.com/">Zapier</a> 是一個自動化工具，首先到 Zapier 官網註冊或登入後，到個人 Dashboard 頁面</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/1-1.png" srcset="/img/loading.gif" lazyload alt="Zapier 個人 Dashboard 頁面"></p>
+<p><strong>在左側選單可以看到免費版一個月可以發 1000 個 Zap，一個月後會重新計算，且只自動運行一個月，一個月後會自動關閉，到時要重新開啟</strong></p>
+<blockquote>
+<p>一個 Zap 也就是一個自動化的事項，例如：發送一個訊息到 Discord 就是一個 Zap</p>
+</blockquote>
+<p><img src="/2022/12/20/use-zapier-in-discord/1-2.png" srcset="/img/loading.gif" lazyload alt="Zapier free plan"></p>
+<h2 id="Make-a-Zap"><a href="#Make-a-Zap" class="headerlink" title="Make a Zap"></a>Make a Zap</h2><p>接著來製作 Zapier 在 Discord 每日發文機器人</p>
+<p>首先在 “Make a Zap” 表格中，選擇 “Schedule in Zapier” 整合至 “Discord”</p>
+<p>接下來因目標是每日自動發文，所以選擇 “Every Day”、”Send Channel Message”</p>
+<blockquote>
+<p>也可以依需求自行選擇 “Every Week”、”Every Month” 或其他設定</p>
+</blockquote>
+<p>最後按下 “Try It”</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/2.png" srcset="/img/loading.gif" lazyload alt="Make a Zap 表格"></p>
+<p>完成後會跳至 Make a Zap 的客製化設定</p>
+<p>點擊最上方的 <code>Trigger - 1. Send channel message in Discord when every day in Schedule by Zapier</code></p>
+<p><img src="/2022/12/20/use-zapier-in-discord/3.png" srcset="/img/loading.gif" lazyload alt="客製化設定"></p>
+<p>確定觸發日期，點擊 Continue</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/4-1.png" srcset="/img/loading.gif" lazyload alt="確定觸發日期"></p>
+<p>選則周末是否要觸發以及設定觸發時間，確定後點擊 Continue</p>
+<blockquote>
+<p>觸發時間格式可以使用選單的 <code>1am</code>、<code>Midnight</code> 或是使用 Custom 格式設置為 <code>9:30pm</code>、<code>21:30</code>、<code>2130</code></p>
+</blockquote>
+<p><img src="/2022/12/20/use-zapier-in-discord/4-2.png" srcset="/img/loading.gif" lazyload alt="設定觸發時間"></p>
+<p>點選 Test Tigger 測試觸發</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/4-3.png" srcset="/img/loading.gif" lazyload alt="測試觸發"></p>
+<p>點擊 Continue 即可</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/4-4.png" srcset="/img/loading.gif" lazyload></p>
+<p>完成 Schedule in Zapier 時間設定後，接下來進行 Discord 設定</p>
+<p>選擇 <code>Action - 2. Send Channel Message in Discord</code>，確認是 <code>Send Channel Message</code> 按下 Continue</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/5-1.png" srcset="/img/loading.gif" lazyload alt="Discord 設定"></p>
+<p>使用 <code>+ Connect a bew account</code>，選擇自己的 Discord 伺服器，並設定授權後，點擊 Continue</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/5-2.png" srcset="/img/loading.gif" lazyload alt="選擇 Discord 伺服器"></p>
+<p>設定 Discord 動作後，按下 Continue</p>
+<ul>
+<li>動作資訊：<ul>
+<li>Channel 頻道</li>
+<li>Message Text 要傳送的訊息</li>
+<li>Ping Username, Role and everyone mentions? 是否要標註人或標註每個人</li>
+<li>Text to Speech 是否允許文字轉換語音</li>
+<li>Bot Name 機器人頭像名稱</li>
+<li>Bot Icon 機器人頭像圖片(請使用完整 URL 路徑，例如 <code>https://example.com/my-image.png</code>，若沒設定預設為 Zapier logo)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>圖片可以到 <a target="_blank" rel="noopener" href="https://unsplash.com/">Unsplash</a> 找</p>
+</blockquote>
+<ul>
+<li>若要使用 Discord 的標記語法：<ul>
+<li>標記所有人<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs aspectj"><span class="hljs-meta">@everyone</span><br></code></pre></td></tr></table></figure></li>
+<li>指定 userID<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-symbol">@1234567890</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>其他設定可看 <a target="_blank" rel="noopener" href="https://help.zapier.com/hc/en-us/articles/8496165585165">Zapier - Mentions and notifications</a></p>
+<p><img src="/2022/12/20/use-zapier-in-discord/5-3.png" srcset="/img/loading.gif" lazyload alt="設定 Discord 動作"></p>
+<p>最後可以使用 Test action 看是否能正確傳送</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/5-4.png" srcset="/img/loading.gif" lazyload alt="測試發送"></p>
+<p>到 Discord 看是否有收到測試訊息</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/6.png" srcset="/img/loading.gif" lazyload alt="測試訊息"></p>
+<p>按下 Publish Zap，及跳出的 Publish &amp; Turn on 按鈕</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/7-1.png" srcset="/img/loading.gif" lazyload alt="發布確認"></p>
+<p><img src="/2022/12/20/use-zapier-in-discord/7-2.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="查詢-x2F-再次編輯我的任務"><a href="#查詢-x2F-再次編輯我的任務" class="headerlink" title="查詢&#x2F;再次編輯我的任務"></a>查詢&#x2F;再次編輯我的任務</h2><p>選擇選單 My Map 點擊 Discord</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/8-1.png" srcset="/img/loading.gif" lazyload></p>
+<p>選擇 Zaps，因為我有設定早晚兩個任務所以有兩個，若要編輯也可點擊要修改的任務</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/8-2.png" srcset="/img/loading.gif" lazyload></p>
+<p>按下 View in Editor</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/9-1.png" srcset="/img/loading.gif" lazyload></p>
+<p>再點選 Edit 即可編輯 </p>
+<p><img src="/2022/12/20/use-zapier-in-discord/9-2.png" srcset="/img/loading.gif" lazyload></p>
+<p>最後可以等設定時間到再看是不是在指定時間有確實傳送訊息，就完成啦</p>
+<p><img src="/2022/12/20/use-zapier-in-discord/10.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Discord/" class="category-chain-item">Discord</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Discord/">#Discord</a>
+      
+        <a href="/tags/Zapier/">#Zapier</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 Zapier 在 Discord 製作每日發文機器人</div>
+      <div>https://carolchyang.github.io/2022/12/20/use-zapier-in-discord/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Carol Yang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2022年12月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/21/embedding-an-image-using-markdown/" title="Hexo 文章同名資料夾圖片引入方法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo 文章同名資料夾圖片引入方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>
